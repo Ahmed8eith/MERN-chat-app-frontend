@@ -13,12 +13,14 @@ export const SocketContextProvider=({children})=>{
     const [socket,setSocket]=useState(null)
     const [onlineUsers,setOnlineUsers]=useState([])
     const {authUser}=useAuthContext()
+    const API_URI = import.meta.env.VITE_API_URI;
+
 
     useEffect(()=>{
         console.log("authUser:", authUser);
 
         if(authUser){
-            const socket=io("https://chat-app124325.netlify.app",{
+            const socket=io(API_URI,{
                 auth:{
                     userId:authUser.id
                 }
