@@ -4,12 +4,14 @@ import { toast } from 'sonner';
 const useGetFreinds = () => {
   const [loading, setLoading] = useState(false);
   const [freinds, setFreinds] = useState([]);
+  const API_URI = import.meta.env.VITE_API_URI;
+
 
   useEffect(() => {
     const fetchFreinds = async () => {
       setLoading(true);
       try {
-        const res = await axios.get("/api/users/get-freinds", { withCredentials: true });
+        const res = await axios.get(`${API_URI}/api/users/get-freinds`, { withCredentials: true });
         const data = res.data; 
         setFreinds(data);
       } catch (error) {

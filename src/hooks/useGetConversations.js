@@ -5,7 +5,8 @@ import axios from 'axios';
 const useGetConversations = () => {
   const [loading, setLoading] = useState(false);
   const [conversations, setConversations] = useState([]);
-
+  const API_URI = import.meta.env.VITE_API_URI;
+  
   const fetchConversations = async (search) => {
     if (!search) {
       setConversations([]);
@@ -14,7 +15,7 @@ const useGetConversations = () => {
     setLoading(true);
     try {
       const res = await axios.get(
-        `/api/users?search=${encodeURIComponent(search)}`,
+        `${API_URI}/api/users?search=${encodeURIComponent(search)}`,
         { withCredentials: true }
       );
       const data = res.data;

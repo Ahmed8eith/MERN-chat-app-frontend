@@ -7,6 +7,8 @@ import { useAuthContext } from '../context/authContext'
 const useRegister = () => {
   const [loading, setLoading] = useState(false)
   const { setAuthUser } = useAuthContext()
+  const API_URI = import.meta.env.VITE_API_URI;
+
   const navigate = useNavigate()
 
   const register = async ({ name, username, password, confirmPassword, gender }) => {
@@ -16,7 +18,7 @@ const useRegister = () => {
     setLoading(true)
     try {
       const res = await axios.post(
-        '/api/auth/register',
+        `${API_URI}/api/auth/register`,
         { name, username, password, confirmPassword, gender },
         { withCredentials: true }
       )

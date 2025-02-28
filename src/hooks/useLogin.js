@@ -5,6 +5,8 @@ import { useAuthContext } from "../context/authContext"
 
 const useLogin = () => {
     const {setAuthUser}=useAuthContext()
+    const API_URI = import.meta.env.VITE_API_URI;
+
 
     const [loading,setLoading]=useState(false)
 
@@ -14,7 +16,7 @@ const useLogin = () => {
     setLoading(true)
         try {
 
-            const res=await axios.post('/api/auth/login',{username,password},{withCredentials:true})
+            const res=await axios.post(`${API_URI}/api/auth/login`,{username,password},{withCredentials:true})
 
             const data =await res.data
             if(data.error){
