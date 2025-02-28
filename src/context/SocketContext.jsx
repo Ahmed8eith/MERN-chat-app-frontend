@@ -18,7 +18,7 @@ export const SocketContextProvider=({children})=>{
         console.log("authUser:", authUser);
 
         if(authUser){
-            const socket=io("http://localhost:5000",{
+            const socket=io("https://mern-chat-app-backend-production-d01b.up.railway.app",{
                 auth:{
                     userId:authUser.id
                 }
