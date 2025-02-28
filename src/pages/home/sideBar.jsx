@@ -10,6 +10,9 @@ import useGetFreinds from '../../hooks/useGetFreinds';
 
 function SideBar() {
   const [searchUsers, setSearchUsers] = useState('');
+
+  const API_URI = import.meta.env.VITE_API_URI;
+
   
   // Hook for search results
   const { loading, conversations, fetchConversations } = useGetConversations();
@@ -22,7 +25,7 @@ function SideBar() {
   const handleLogout = async () => {
     try {
       await axios.post(
-        'http://localhost:5000/api/auth/logout',
+        `${API_URI}/api/auth/logout`,
         {},
         { withCredentials: true }
       );
