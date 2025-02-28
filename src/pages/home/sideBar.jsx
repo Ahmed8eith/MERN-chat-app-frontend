@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { toast } from 'sonner';
 import { TbLogout2 } from "react-icons/tb";
 import axios from 'axios';
-import SearchBar from './SearchBar';
+import SearchBar from './searchBar';
 import { useAuthContext } from '../../context/authContext';
 import useGetConversations from '../../hooks/useGetConversations';
 import useConversation from '../../context/useConversation';
